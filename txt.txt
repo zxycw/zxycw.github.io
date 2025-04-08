@@ -1,7 +1,0 @@
-如何架設hppts網站
-1.購買域名
-2.伺服器
-3.DNS設定(用於把域名指向伺服器ip)
-4.安裝配置網頁伺服器(Apache Nginx)
-5.SSL免費證書(Lets Encrypt)(Cerbot)
-6.配置https &重定向 (強制http重定向至https)
