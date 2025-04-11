@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>zxycw</title>
+    </head>
+    <body>
+        <a href="#" style="--clr:#0f0;"><span>BUTTON</span></a>
+        <a href="#" style="--clr:#ff0;"><span>BUTTON</span></a>
+        <a href="#" style="--clr:#f0f;"><span>BUTTON</span></a>
+        <style>
+            body{
+  font-family:sans-serif;
+  height:100vh;
+  background-color:#000000;
+  display:flex;
+  flex-direction: column;/*垂直排列*/
+  justify-content: center;/*水平置中*/
+  align-items:center;/*垂直置中*/
+  gap:40px;
+}
+a{
+  position:relative;
+  padding:20px 60px;
+  background-color:rgba(45,45,45,1);
+  border-radius:50px;
+  color:#999;
+  font-size:20px;
+  text-decoration:none;
+  overflow:hidden;
+  transition:.5s;
+}
+a:hover{
+  color:var(--clr);
+  text-shadow:0 0 30px var(--clr),
+              0 0 60px var(--clr);
+}
+a::before{
+  content:'';
+  position:absolute;
+  top:var(--y);
+  left:var(--x);
+  transform:translate(-50%,-50%);
+  width:200px;
+  height:200px;
+  background:radial-gradient(var(--clr),transparent,transparent);
+  opacity:0;
+  transition:.5s,top 0s, left 0s;
+}
+a span{
+  position:relative;
+  z-index:1;
+  letter-spacing:2px;
+}
+a:hover::before{ 
+  opacity:1;
+}
+a::after{
+  content:'';
+  background-color:rgba(45,45,45.8);
+  position:absolute;
+  inset:2px;
+  border-radius:48px;
+}
+        </style>
+        <script>
+            let btns=document.querySelectorAll('a');
+btns.forEach(btn => {
+  btn.onmousemove= (e) => {
+    let x =e.pageX-btn.offsetLeft
+    let y =e.pageY-btn.offsetTop
+    
+    btn.style.setProperty('--x',x +'px')
+    btn.style.setProperty('--y',y +'px')
+  }
+})
+        </script>
+    </body>
+</html>
